@@ -22,23 +22,31 @@
 
   <script>
     function adicionarTarefa() {
-          // Pega do ID mensagem e adiciona uma mensagem
-          let mensagem = "Tarefa adicionada com sucesso!";
-          
-          // Pega o id input
+                    
+          // 1 - Pega o id input
           let inputTarefa = document.getElementById("inputTarefa");
-          // Pega o valor do input
-          let tarefa = inputTarefa.value;
-          // Retorna a variavel no id
-          document.getElementById("mensagem").textContent = mensagem;
 
-          // Pega o id listaTarefas
-          let listaTarefas = document.getElementById("listaTarefas");
-          // Variavel criada com um novo elemento li
-          let novaTarefa = document.createElement("li")
-          
-          // Adiciona a classe tarefa ao novo elemento li
-          novaTarefa.textContent = tarefa;
+          // 2 - Pega o valor do input
+          let tarefa = inputTarefa.value.trim()
+
+          // 3 - Pega onde vai mostar a mensagem
+          let mensagem = document.getElementById("mensagem");
+
+          // 4 - Verificarb se o input está vazio
+          if (tarefa === "") {
+              mensagem.textContent = "⚠️ Por favor, escreva uma tarefa.";
+              mensagem.style.color = "red";
+              return; // Para a função aqui
+          }
+
+          // Se estiver texto
+          mensagem.textContent = "✅ Tarefa adicionada com sucesso!";
+          mensagem.style.color = "green";
+
+          // Cria novo Li
+          let listaTarefas = document.getElementById("listaTarefas"); // Pega o id listaTarefas
+          let novaTarefa = document.createElement("li") // Variavel criada com um novo elemento li         
+          novaTarefa.textContent = tarefa; // Adiciona a classe tarefa ao novo elemento li
 
           // Adiciona o novo elemento li no UL (listaTarefas)
           listaTarefas.appendChild(novaTarefa);
