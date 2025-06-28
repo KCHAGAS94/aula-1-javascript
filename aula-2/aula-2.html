@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Tarefas</title>
+  <link rel="stylesheet" href="aula-2.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Lista de Tarefas</h1>
+    <p>Adicione suas tarefas!</p>
+    <input type="text" id="inputTarefa" placeholder="Digite sua tarefa aqui">
+    <button onclick="adicionarTarefa()">Adicionar Tarefa</button>
+    <p id="mensagem"></p>
+    <ul id="listaTarefas">
+      <!-- As tarefas serão adicionadas aqui -->
+      
+    </ul>
+  </div>
+
+  <script>
+    function adicionarTarefa() {
+          // Pega do ID mensagem e adiciona uma mensagem
+          let mensagem = "Tarefa adicionada com sucesso!";
+          
+          // Pega o id input
+          let inputTarefa = document.getElementById("inputTarefa");
+          // Pega o valor do input
+          let tarefa = inputTarefa.value;
+          // Retorna a variavel no id
+          document.getElementById("mensagem").textContent = mensagem;
+
+          // Pega o id listaTarefas
+          let listaTarefas = document.getElementById("listaTarefas");
+          // Variavel criada com um novo elemento li
+          let novaTarefa = document.createElement("li")
+          
+          // Adiciona a classe tarefa ao novo elemento li
+          novaTarefa.textContent = tarefa;
+
+          // Adiciona o novo elemento li no UL (listaTarefas)
+          listaTarefas.appendChild(novaTarefa);
+
+          // Limpar texto add no input
+          inputTarefa.value = "" 
+    }
+  </script>
+</body>
+</html>
